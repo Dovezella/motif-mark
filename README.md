@@ -11,15 +11,27 @@ Given:
 Output:
 - a png file depicting each sequence to scale with the locations of found motifs 
 
+## How to Run ##
 
+From directory where script is stored:
+```
+./mark-motif-oop.py -f <path_to_Fasta_file> -m <path_to_motif_text_file>
+```
+
+| options | name   | description                                         |
+|---------|--------|-----------------------------------------------------|
+|    -f   |--fasta | the fasta file with genes to be searched for motifs |
+|-m       |--motif | the motif text file                                 |   
 
 ## Data Organization ##
 
 
 This should be run in an environment with python and pycairo packages installed.
->  Mine is called 'motif'. (hint:  mamba activate)
+>  - mamba create, install, and activate
+>  - python version 3.12.2 was used
+>  - pycairo version 1.26.0 was used
 
-This __needs__ to be done with __object-oriented programming__. 
+This script was designed with __object-oriented programming__. 
 - Classes for:
 
     - each Motif object (to be populated in for loop reading input text file)
@@ -67,8 +79,9 @@ This __needs__ to be done with __object-oriented programming__.
 - __One_line_fasta__ to make each sequence entry in fasta a single line and output a dictionary of information for each gene in file
 
 - __ambiguity__ to populate dictionary for each motif to assign color values and the regular expression to use in searching the genes in gather_positions ForIllustration method
+    - This function can handle ambiguous nucleotides. See:  https://en.wikipedia.org/wiki/Nucleic_acid_notation for more details..
 
-## Basic Workflow ##
+## Simplified Script Workflow ##
 
 1. read in files to create Motif and Gene objects
     - use for loop to read -m motif text file to initialize Motif object and then use .create method
@@ -93,7 +106,19 @@ This __needs__ to be done with __object-oriented programming__.
         - draw_genes_with_motifs
 
 
+## Limitations ##
 
+This script can only handle five motifs due to needing to generate rgb values for different colors associated with a single motif. 
+- It also chooses which motif is associated with which color at random each time the script is run. If desired to give specific colors, would require an updated script.
+
+Currently, only outputs a png.
+- Could easily be updated to provide other options such as svg or other common image filetypes supported by pycairo.
+
+The order of the genes is output randomly each time the script is run. 
+- Update of script required to put in any sort of particular order (sorted by gene name, gene length, etc)
+
+If you desire to edit the script for your own purposes, there are details commented in the code for what is required for it to work in its current conception. 
+- specific for loops, and "genes" variable name for oneline_fasta function output
 
 
 

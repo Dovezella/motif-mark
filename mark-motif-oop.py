@@ -14,7 +14,7 @@ import cairo
 def get_args():
     parser = argparse.ArgumentParser(description="A program to parse FASTA file looking for motifs and output a png visualization")
     parser.add_argument("-f", "--fasta", help="fasta filename", required=True, type=str)
-    parser.add_argument("-m", "--motif", help="motif file name that ends in _unique.sam", required= True, type=str)
+    parser.add_argument("-m", "--motif", help="motif file name", required= True, type=str)
 
     return parser.parse_args()
 
