@@ -120,6 +120,8 @@ The order of the genes is output randomly each time the script is run.
 If you desire to edit the script for your own purposes, there are details commented in the code for what is required for it to work in its current conception. 
 - specific for loops, and "genes" variable name for oneline_fasta function output
 
+If the headers of the fasta file differ greatly from the example given Figure_1.fasta, then the script may need to be modified to grab the proper components needed.
+
 
 
 
