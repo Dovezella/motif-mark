@@ -348,6 +348,7 @@ class DrawMe:
         for gobj in self.illustrationgroups:
             for key, values in gobj.info.items():
                 if key[2] == "exon":
+                    # print(f'{key=}')
                     self.con.set_source_rgb(0,0,0)
                     exstart = key[6]
                     ex_x_axis_start = int(re.search("[0-9]+",exstart).group()) + 11   #add one to move from 0-based numbers to matrix-math based numbers and 10 for margin space
@@ -370,12 +371,13 @@ class DrawMe:
                     startofliney += 40
                     for mkey,sval in gobj.positions.items():
                         w = len(mkey[0])
+                        # print(f'{w=},{mkey=}')
                         r = float(mkey[2][0])
                         g = float(mkey[2][1])
                         b = float(mkey[2][2])
                         self.con.set_source_rgb(r,g,b)
                         for xaxism in sval:
-                            x = xaxism + 10
+                            x = xaxism + 11
                             self.con.rectangle(x,rec_start_y,w,10)
                             self.con.fill()
                             self.con.stroke()
